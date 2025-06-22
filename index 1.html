@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{LANG}}">
 <head>
   <meta charset="UTF-8">
-  <title><span translate="no" class="notranslate">Reeblink</span></title>
+  <title>Reeblink</title>
   <meta name="google" content="notranslate">
   <style>
     body {
@@ -77,6 +77,9 @@
     form button:hover {
       background-color: #004c99;
     }
+    .notranslate {
+      unicode-bidi: isolate;
+    }
   </style>
 </head>
 <body>
@@ -91,43 +94,38 @@
     <a href="index-pt.html">PT</a>
   </div>
 
-  <h1><span translate="no" class="notranslate">Reeblink</span></h1>
-  <p><em>A decentralized operating system for real estate</em></p>
+  <h1><span class="notranslate" translate="no">Reeblink</span></h1>
+  <p><em>{{TAGLINE}}</em></p>
 
-  <p>DAO infrastructure with open-source code that connects property registries from various jurisdictions into a unified decentralized ledger — enabling users to create a global real estate network on the blockchain.</p>
+  <p>{{INTRO_PARAGRAPH}}</p>
 
   <ul>
-    <li>Windows — for personal computers</li>
-    <li>Android — for smartphones</li>
-    <li>Ethereum — for smart contracts</li>
-    <li><strong><span translate="no" class="notranslate">Reeblink</span> — for real estate</strong></li>
+    <li>Windows — {{PLATFORM_1}}</li>
+    <li>Android — {{PLATFORM_2}}</li>
+    <li>Ethereum — {{PLATFORM_3}}</li>
+    <li><strong><span class="notranslate" translate="no">Reeblink</span> — {{PLATFORM_4}}</strong></li>
   </ul>
 
   <div class="badges">
-    <p>⛓️ Decentralized</p>
-    <p>📡 Global</p>
-    <p>🏗️ Purpose-built for property</p>
+    <p>{{BADGE_1}}</p>
+    <p>{{BADGE_2}}</p>
+    <p>{{BADGE_3}}</p>
   </div>
 
   <hr>
 
-  <p><strong>Currently in development</strong> — the first open-source module focuses on DAO infrastructure and legal automation.</p>
+  <p><strong>{{DEVELOPMENT_NOTE}}</strong> — {{MODULE_INFO}}</p>
 
   <details>
-    <summary>📘 Learn more about the academic foundation</summary>
-    <p>
-      We have published an <a href="https://doi.org/10.5281/zenodo.15708039" target="_blank">academic article</a> outlining the architecture of decentralized real estate networks and Reeblink’s role as an operating system. The article is available in English.
-    </p>
-    <p>
-      Translations into other languages are underway.  
-      You can submit a request — and we’ll notify you as soon as the version you need is ready.
-    </p>
+    <summary>{{SUMMARY}}</summary>
+    <p>{{ARTICLE_INTRO}}</p>
+    <p>{{TRANSLATION_NOTE}}</p>
     <form action="https://formspree.io/f/xpwryadl" method="POST">
-      <label for="language">Language of translation:</label><br>
+      <label for="language">{{LABEL_LANG}}</label><br>
       <input type="text" id="language" name="language" required><br>
-      <label for="email">Your email:</label><br>
+      <label for="email">{{LABEL_EMAIL}}</label><br>
       <input type="email" id="email" name="email" required><br>
-      <button type="submit">Submit request</button>
+      <button type="submit">{{BUTTON_TEXT}}</button>
     </form>
   </details>
 
