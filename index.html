@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -78,28 +77,37 @@
     form button:hover {
       background-color: #004c99;
     }
-  
-@media (max-width: 600px) {
-  .lang-switcher a {
-    font-size: 1.3rem !important;
-  }
 
-  h1 {
-    font-size: 2.2em !important;
-    text-align: center;
-  }
+    summary {
+      font-size: 1.3rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
 
-  svg text {
-    font-size: 1.3rem !important;
-  }
+    .notranslate {
+      translate: no;
+    }
 
-  summary {
-    font-size: 1.3rem !important;
-    font-weight: bold;
-  }
-}
+    @media (max-width: 600px) {
+      .lang-switcher a {
+        font-size: 1.3rem !important;
+      }
 
-</style>
+      h1 {
+        font-size: 2.2em !important;
+        text-align: center;
+      }
+
+      svg text {
+        font-size: 1.3rem !important;
+      }
+
+      summary {
+        font-size: 1.3rem !important;
+        font-weight: bold;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -113,20 +121,23 @@
     <a href="index-pt.html">PT</a>
   </div>
 
-  <h1>Reeblink</h1>
+  <h1 translate="no" class="notranslate">Reeblink</h1>
   <p><em>A decentralized operating system for real estate</em></p>
 
-  <p>DAO infrastructure with open-source code that connects property registries from various jurisdictions into a unified decentralized ledger — enabling users to create a global real estate network on the blockchain.</p>
+  <p>
+    DAO infrastructure with open-source code that connects property registries from various jurisdictions into a unified decentralized ledger — enabling users to create a global real estate network on the blockchain.
+  </p>
 
   <ul>
     <li>Windows — for personal computers</li>
     <li>Android — for smartphones</li>
     <li>Ethereum — for smart contracts</li>
     <li>
-  <svg xmlns="http://www.w3.org/2000/svg" width="84" height="22" style="vertical-align: middle;">
-    <text x="0" y="16" font-family="Arial" font-size="16" fill="#000" translate="no">Reeblink</text>
-  </svg>&nbsp;— for real estate
-</li>
+      <svg xmlns="http://www.w3.org/2000/svg" width="110" height="24" style="vertical-align: middle;">
+        <text x="0" y="18" font-family="Arial" font-size="18" fill="#000" translate="no">Reeblink</text>
+      </svg>
+      &nbsp;— for real estate
+    </li>
   </ul>
 
   <div class="badges">
@@ -140,7 +151,7 @@
   <p><strong>Currently in development</strong> — the first open-source module focuses on DAO infrastructure and legal automation.</p>
 
   <details>
-    <summary>📘 Learn more about the academic foundation</summary>
+    <summary>📘 <span class="notranslate" translate="no">Learn more about the academic foundation</span></summary>
     <p>
       We have published an <a href="https://doi.org/10.5281/zenodo.15708039" target="_blank">academic article</a> outlining the architecture of decentralized real estate networks and Reeblink’s role as an operating system. The article is available in English.
     </p>
