@@ -49,6 +49,7 @@
       text-decoration: none;
       font-weight: bold;
       color: #0066cc;
+      font-size: 1.1rem;
     }
     .lang-switcher a:hover {
       text-decoration: underline;
@@ -82,15 +83,20 @@
       font-size: 1.3rem;
       font-weight: bold;
       cursor: pointer;
+      color: #0066cc;
     }
 
     .notranslate {
       translate: no;
     }
 
+    summary::marker {
+      font-size: 2em; /* увеличенная стрелка */
+    }
+
     @media (max-width: 600px) {
       .lang-switcher a {
-        font-size: 1.3rem !important;
+        font-size: 1.5rem !important;
       }
 
       h1 {
@@ -99,12 +105,17 @@
       }
 
       svg text {
-        font-size: 1.3rem !important;
+        font-size: 1.5rem !important;
       }
 
       summary {
-        font-size: 1.3rem !important;
+        font-size: 1.5rem !important;
         font-weight: bold;
+        color: #0066cc;
+      }
+
+      summary::marker {
+        font-size: 2.6em;
       }
     }
   </style>
@@ -134,9 +145,8 @@
     <li>Ethereum — for smart contracts</li>
     <li>
       <svg xmlns="http://www.w3.org/2000/svg" width="110" height="24" style="vertical-align: middle;">
-        <text x="0" y="18" font-family="Arial" font-size="18" fill="#000" translate="no">Reeblink</text>
-      </svg>
-      &nbsp;— for real estate
+        <text x="0" y="18" font-family="Arial" font-size="18" fill="#000" class="notranslate" translate="no">Reeblink</text>
+      </svg> — for real estate
     </li>
   </ul>
 
@@ -151,7 +161,7 @@
   <p><strong>Currently in development</strong> — the first open-source module focuses on DAO infrastructure and legal automation.</p>
 
   <details>
-    <summary>📘 <span class="notranslate" translate="no">Learn more about the academic foundation</span></summary>
+    <summary><span class="notranslate" translate="no">📘 Learn more about the academic foundation</span></summary>
     <p>
       We have published an <a href="https://doi.org/10.5281/zenodo.15708039" target="_blank">academic article</a> outlining the architecture of decentralized real estate networks and Reeblink’s role as an operating system. The article is available in English.
     </p>
