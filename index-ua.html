@@ -23,10 +23,23 @@
     form button:hover { background-color: #004c99; }
     summary { font-size: 1.3rem; font-weight: bold; cursor: pointer; color: #0066cc; }
     summary::marker { font-size: 2em; }
-    @media (max-width: 600px) {
-      nav, .lang-switcher { text-align: center; }
-      nav a, .lang-switcher a { display: block; margin: 10px 0; }
-    }
+   @media (max-width: 600px) {
+  nav a {
+    display: inline-block;
+    margin: 5px 10px;
+    font-size: 0.95rem;
+  }
+  .lang-switcher a {
+    display: inline-block;
+    margin: 5px 5px;
+    font-size: 0.95rem;
+  }
+  .header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
   </style>
 </head>
 <body>
