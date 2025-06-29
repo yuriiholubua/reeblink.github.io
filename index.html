@@ -47,7 +47,7 @@ body {
   line-height: 1.6;
   color: #222;
 }
-h1, h2 { font-size: 2em; margin-top: 1.5em; }
+h1, h2 { font-size: 2em; margin-top: 1.5em; display: inline-block; vertical-align: middle; }
 em { color: #555; }
 ul { margin-top: 1em; padding-left: 20px; }
 hr { margin: 2em 0; }
@@ -55,7 +55,7 @@ a { color: #0066cc; text-decoration: none; }
 a:hover { text-decoration: underline; }
 .header-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: flex-end;
   flex-wrap: wrap;
   position: sticky;
@@ -64,14 +64,15 @@ a:hover { text-decoration: underline; }
   z-index: 1000;
   padding: 10px 20px;
 }
-.header-container .logo {
-  max-height: 50px;
-  display: block;
-}
 .nav-lang {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+}
+.logo-about {
+  max-height: 40px;
+  vertical-align: middle;
+  margin-right: 10px;
 }
 nav a {
   margin: 0 15px;
@@ -139,8 +140,6 @@ summary::marker { font-size: 2em; }
 <body>
 
 <div class="header-container">
-  <img src="/images/logo.svg" alt="Reeblink logo" class="logo">
-
   <div class="nav-lang">
     <nav>
       <a href="#about">About</a>
@@ -161,9 +160,8 @@ summary::marker { font-size: 2em; }
   </div>
 </div>
 
-<!-- твои секции about, token, genesis, subscribe без изменений -->
-
 <section id="about">
+  <img src="/images/logo.svg" alt="Reeblink logo" class="logo-about">
   <h1 translate="no" class="notranslate">Reeblink</h1>
   <p><em>A decentralized operating system for real estate</em></p>
   <p>DAO infrastructure with open-source code that connects property registries from various jurisdictions into a unified decentralized ledger, enabling the creation of a global real estate network on blockchain.</p>
@@ -173,8 +171,10 @@ summary::marker { font-size: 2em; }
     <li>Ethereum — for smart contracts</li>
     <li>Reeblink — for real estate</li>
   </ul>
-  <!-- ... остальные секции полностью оставь как у тебя были ... -->
+  <!-- остальные секции без изменений -->
 </section>
+
+<!-- вставь оставшиеся секции token, genesis, subscribe как в твоей версии -->
 
 </body>
 </html>
