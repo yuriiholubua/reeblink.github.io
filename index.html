@@ -6,76 +6,138 @@
 <title>Reeblink</title>
 <meta name="google" content="notranslate" />
 <style>
+/* Основные стили для body: шрифт, ширина, отступы, цвета */
 body {
-  font-family: Arial, sans-serif;
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 0 20px;
-  line-height: 1.6;
-  color: #222;
+  font-family: Arial, sans-serif; /* шрифт Arial с запасным sans-serif */
+  max-width: 900px;               /* максимальная ширина блока body */
+  margin: 40px auto;              /* 40px сверху и снизу, auto слева и справа (центрирует) */
+  padding: 0 20px;                /* внутренний отступ слева и справа по 20px */
+  line-height: 1.6;               /* межстрочное расстояние */
+  color: #222;                    /* цвет текста темно-серый */
 }
-h1, h2 { font-size: 2em; margin-top: 1.5em; }
-em { color: #555; }
-ul { margin-top: 1em; padding-left: 20px; }
-hr { margin: 2em 0; }
-a { color: #0066cc; text-decoration: none; }
-a:hover { text-decoration: underline; }
+
+/* Заголовки h1 и h2: размер и верхний отступ */
+h1, h2 {
+  font-size: 2em;    /* размер шрифта в 2 раза больше базового */
+  margin-top: 1.5em; /* верхний отступ */
+}
+
+/* Элемент em: цвет текста */
+em {
+  color: #555; /* серый цвет для выделенного текста */
+}
+
+/* Списки ul: верхний отступ и отступ слева */
+ul {
+  margin-top: 1em;    /* верхний отступ */
+  padding-left: 20px; /* отступ слева для маркеров */
+}
+
+/* Горизонтальная линия hr: отступ сверху и снизу */
+hr {
+  margin: 2em 0; /* отступы сверху и снизу по 2em */
+}
+
+/* Ссылки a: цвет и оформление при наведении */
+a {
+  color: #0066cc; /* синий цвет ссылок */
+  text-decoration: none; /* без подчеркивания */
+}
+a:hover {
+  text-decoration: underline; /* подчеркивание при наведении */
+}
+
+/* Контейнер header: фиксируется сверху при прокрутке */
 .header-container {
-  position: sticky;
-  top: 0;
-  background: white;
-  z-index: 1000;
-  padding-bottom: 10px;
+  position: sticky;   /* прилипает при скролле */
+  top: 0;             /* фиксируется у верхнего края */
+  background: white;  /* фон белый */
+  z-index: 1000;      /* поверх остальных элементов */
+  padding-bottom: 10px; /* нижний внутренний отступ */
 }
-nav { text-align: center; }
-nav a {
-  margin: 0 15px;
-  font-weight: bold;
-  font-size: 1.1rem;
-  display: inline-block;
-}
-.lang-switcher {
+
+/* Навигация: выравнивание по центру */
+nav {
   text-align: center;
-  margin-top: 5px;
 }
+
+/* Ссылки навигации: отступы, жирность, размер */
+nav a {
+  margin: 0 15px;       /* отступ слева и справа по 15px */
+  font-weight: bold;    /* жирный шрифт */
+  font-size: 1.1rem;    /* чуть больше базового размера */
+  display: inline-block; /* блочный элемент в строке */
+}
+
+/* Переключатель языков: выравнивание и верхний отступ */
+.lang-switcher {
+  text-align: center; /* центрирование кнопок */
+  margin-top: 5px;    /* верхний отступ */
+}
+
+/* Ссылки переключателя языков: отступы, оформление */
 .lang-switcher a {
-  margin: 0 5px;
-  text-decoration: none;
-  font-weight: bold;
-  color: #0066cc;
-  font-size: 1.1rem;
+  margin: 0 5px;        /* отступ слева и справа по 5px */
+  text-decoration: none; /* без подчеркивания */
+  font-weight: bold;    /* жирный текст */
+  color: #0066cc;       /* синий цвет */
+  font-size: 1.1rem;    /* размер шрифта */
 }
+
+/* Форма: верхний отступ, фон, внутренние отступы, скругление углов */
 form {
   margin-top: 1em;
-  background: #f9f9f9;
-  padding: 1em;
-  border-radius: 8px;
+  background: #f9f9f9; /* светло-серый фон */
+  padding: 1em;        /* внутренние отступы */
+  border-radius: 8px;  /* скругленные углы */
 }
+
+/* Входные поля и кнопки в форме: ширина, отступы, padding */
 form input, form button {
-  width: 100%;
-  padding: 0.5em;
-  margin-top: 0.5em;
+  width: 100%;          /* на всю ширину блока */
+  padding: 0.5em;       /* внутренние отступы */
+  margin-top: 0.5em;    /* верхний отступ */
 }
+
+/* Кнопка формы: фон, цвет текста, без рамки, скругление, курсор */
 form button {
-  background-color: #0066cc;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  background-color: #0066cc; /* синий фон */
+  color: white;              /* белый текст */
+  border: none;              /* без границ */
+  border-radius: 4px;        /* скругление углов */
+  cursor: pointer;           /* курсор в виде руки */
 }
-form button:hover { background-color: #004c99; }
+
+/* Кнопка формы при наведении: более темный фон */
+form button:hover {
+  background-color: #004c99;
+}
+
+/* summary: размер, жирность, курсор, цвет */
 summary {
   font-size: 1.3rem;
   font-weight: bold;
   cursor: pointer;
   color: #0066cc;
 }
-summary::marker { font-size: 2em; }
-ul.no-bullets {
-  list-style-type: none; /* убирает точки */
-  padding-left: 0;       /* убирает лишний отступ слева */
+
+/* Маркер summary: размер */
+summary::marker {
+  font-size: 2em;
 }
-[id] { scroll-margin-top: 140px; }
+
+/* Класс для списков без маркеров */
+ul.no-bullets {
+  list-style-type: none; /* убирает маркеры */
+  padding-left: 0;       /* убирает отступ слева */
+}
+
+/* Смещение якорей при скролле с учетом шапки */
+[id] {
+  scroll-margin-top: 140px; /* оставляет место сверху при переходе по якорю */
+}
+</style>
+; }
 
 .lang-switcher {
   margin-bottom: 0; /* убирает нижний отступ у блока языков */
