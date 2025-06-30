@@ -110,35 +110,33 @@ html {
 /* Медиазапрос для мобильных, если нужно меньше смещение */
 @media (max-width: 600px) {
   [id] {
-    scroll-margin-top: 100px; /* меньше отступ на маленьких экранах */
+    scroll-margin-top: 100px;
   }
 
   .lang-switcher {
-    font-size: 0.9rem; /* чуть меньше размер текста на мобиле */
+    font-size: 0.9rem;
   }
 
   .lang-switcher a {
-    padding: 0.15em 0.4em; /* уменьшенные отступы на мобиле */
+    padding: 0.15em 0.4em;
+    display: inline-block;
+    margin: 5px 5px;
+    font-size: 0.95rem;
   }
-}
 
-@media (max-width: 600px) {
   nav a {
     display: inline-block;
     margin: 5px 10px;
-    font-size: 0.95rem; /* уменьшено с 1.1rem */
+    font-size: 0.95rem;
   }
-  .lang-switcher a {
-    display: inline-block;
-    margin: 5px 5px;
-    font-size: 0.95rem; /* уменьшено с 1.1rem */
-  }
+
   .header-container {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 }
+
 </style>
 </head>
 <body>
