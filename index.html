@@ -64,6 +64,15 @@ form button {
   cursor: pointer;
 }
 form button:hover { background-color: #004c99; }
+form label { 
+  font-size: 1rem; /* размер текста label */
+}
+form input {
+  font-size: 1rem; /* размер текста внутри input */
+}
+form button {
+  font-size: 1rem; /* размер текста кнопки */
+}
 summary {
   font-size: 1.3rem;
   font-weight: bold;
@@ -109,10 +118,18 @@ html {
 
 /* Медиазапрос для мобильных, если нужно меньше смещение */
 @media (max-width: 600px) {
+ form label {
+    font-size: 1rem; /* или чуть больше для удобства, например 1.1rem */
+  }
+  form input {
+    font-size: 1rem;
+  }
+  form button {
+    font-size: 1rem;
+  }
   [id] {
     scroll-margin-top: 100px;
   }
-
   .lang-switcher {
     font-size: 16px;
   }
