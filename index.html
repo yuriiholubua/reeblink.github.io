@@ -117,45 +117,48 @@ html {
 }
 
 /* Медиазапрос для мобильных, если нужно меньше смещение */
+/* 📱 Медиазапрос для мобильных */
 @media (max-width: 600px) {
- form label {
-    font-size: 16px; /* или чуть больше для удобства, например 1.1rem */
-  }
-  form input {
-    font-size: 16px;
-  }
+  form label,
+  form input,
   form button {
     font-size: 16px;
   }
+
   [id] {
     scroll-margin-top: 100px;
   }
-lang-switcher {
-  font-size: 13px;
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
-  overflow-x: auto;
-  gap: 6px;
-}
-.lang-switcher a {
-  font-size: inherit;
-  padding: 0.3em 0.6em;
-  white-space: nowrap; /* Не даёт кнопке переноситься */
-}
- .main-nav {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
-  overflow-x: auto;
-  gap: 10px;
-  margin-bottom: 0.5em;
-}
-.main-nav a {
-  font-size: 13px;
-  padding: 0.3em 0.6em;
-  white-space: nowrap;
-}
+
+  .main-nav {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    overflow-x: auto;
+    gap: 10px;
+    margin-bottom: 0.5em;
+  }
+
+  .main-nav a {
+    font-size: 13px;
+    padding: 0.3em 0.6em;
+    white-space: nowrap;
+  }
+
+  .lang-switcher {
+    font-size: 13px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    overflow-x: auto;
+    gap: 6px;
+  }
+
+  .lang-switcher a {
+    font-size: inherit;
+    padding: 0.3em 0.6em;
+    white-space: nowrap;
+  }
+
   .header-container {
     display: flex;
     flex-direction: column;
