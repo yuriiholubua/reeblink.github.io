@@ -117,7 +117,7 @@ html {
 }
 
 /* Медиазапрос для мобильных, если нужно меньше смещение */
-@media (max-width: 900px) {
+@media (max-width: 600px) {
  form label {
     font-size: 16px; /* или чуть больше для удобства, например 1.1rem */
   }
@@ -131,22 +131,20 @@ html {
     scroll-margin-top: 100px;
   }
   .lang-switcher {
-    font-size: 16px;
-  }
+  font-size: 14px;
+}
 
-  .lang-switcher a {
-    padding: 0.15em 0.4em;
-    display: inline-block;
-    margin: 5px 5px;
-    font-size: 16px;
-  }
-
+.lang-switcher a {
+  font-size: inherit; /* унаследует 14px от .lang-switcher */
+  padding: 0.25em 0.5em;
+  margin: 3px 4px;
+  display: inline-block;
+}
   nav a {
-    display: inline-block;
-    margin: 3px 8px;
-    font-size: 16px;
+    font-size: 14px;
+    padding: 0.3em 0.6em;
+    margin: 3px 6px;
   }
-
   .header-container {
     display: flex;
     flex-direction: column;
