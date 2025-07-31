@@ -130,21 +130,31 @@ html {
   [id] {
     scroll-margin-top: 100px;
   }
-  .lang-switcher {
-  font-size: 14px;
+lang-switcher {
+  font-size: 13px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  overflow-x: auto;
+  gap: 6px;
 }
-
 .lang-switcher a {
-  font-size: inherit; /* унаследует 14px от .lang-switcher */
-  padding: 0.25em 0.5em;
-  margin: 3px 4px;
-  display: inline-block;
+  font-size: inherit;
+  padding: 0.3em 0.6em;
+  white-space: nowrap; /* Не даёт кнопке переноситься */
 }
-  nav a {
-    font-size: 14px;
-    padding: 0.3em 0.6em;
-    margin: 3px 6px;
-  }
+  nav {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  overflow-x: auto;
+  gap: 10px;
+}
+nav a {
+  font-size: 13px;
+  padding: 0.3em 0.6em;
+  white-space: nowrap;
+}
   .header-container {
     display: flex;
     flex-direction: column;
