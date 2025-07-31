@@ -130,12 +130,18 @@ html {
   }
 
   .main-nav {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background-color: white; /* или другой фон сайта */
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
     overflow-x: auto;
     gap: 10px;
+    padding: 0.5em 0;
     margin-bottom: 0.5em;
+    border-bottom: 1px solid #ddd;
   }
 
   .main-nav a {
@@ -151,6 +157,7 @@ html {
     justify-content: center;
     overflow-x: auto;
     gap: 6px;
+    margin-top: 0.5em;
   }
 
   .lang-switcher a {
