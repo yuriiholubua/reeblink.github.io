@@ -129,47 +129,43 @@ html {
     scroll-margin-top: 100px;
   }
 
-  .main-nav {
-    position: sticky;
-    top: 0;
-    z-index: 999;
-    background-color: white; /* или другой фон сайта */
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    overflow-x: auto;
-    gap: 10px;
-    padding: 0.5em 0;
-    margin-bottom: 0.5em;
-    border-bottom: 1px solid #ddd;
-  }
-
-  .main-nav a {
-    font-size: 13px;
-    padding: 0.3em 0.6em;
-    white-space: nowrap;
-  }
-
-  .lang-switcher {
-    font-size: 13px;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    overflow-x: auto;
-    gap: 6px;
-    margin-top: 0.5em;
-  }
-
-  .lang-switcher a {
-    font-size: inherit;
-    padding: 0.3em 0.6em;
-    white-space: nowrap;
-  }
-
   .header-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: white;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-nav,
+  .lang-switcher {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    overflow-x: auto;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .main-nav a,
+  .lang-switcher a {
+    font-size: 13px;
+    padding: 0.3em 0.6em;
+    white-space: nowrap;
+    text-align: center;
+    flex: unset;
+  }
+
+  body {
+    padding-top: 120px;
   }
 }
 </style>
