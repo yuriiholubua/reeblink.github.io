@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Reeblink — Investment Round</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="hero center wrap" style="padding-bottom: 44px;">
+  <p class="brand" style="margin-bottom: 10px;">REEBLINK DOS</p>
+  <p class="tagline" style="margin-bottom: 52px;">A decentralized operating system for real estate, built on an open programmable standard</p>
+  <p class="lead" style="font-size: 22px;">$2 trillion in rent burns away every year.<br>Another $2 trillion — in mortgage interest.*</p>
+</header>
+
+<main>
+  <section class="center wrap narrow" style="border-top: 1px solid var(--line); padding-top: 42px; padding-bottom: 42px;">
+    <p class="thesis">
+      We provide the standard.<br>
+      Users build the network.**<br>
+      Rent becomes equity.<br>
+      Structural deficit drives network expansion.<br>
+      The corporation monetizes IP and licensing around the standard.
+    </p>
+  </section>
+
+  <section class="center wrap" style="border-top: 1px solid var(--line); max-width: 460px; padding-top: 42px; padding-bottom: 36px;">
+    <p class="kicker" style="margin-bottom: 20px;">Round terms</p>
+    <p style="font-size: 17px; color: var(--ink); margin-bottom: 16px;">SAFE · $5M cap · 20% discount</p>
+    <p class="soft" style="font-size: 15px; margin-bottom: 34px;">$500k — protocol, audit, legal infrastructure, testnet.<br>$800k — all of the above + the first property and mainnet.</p>
+    <p class="muted" style="font-size: 14px; line-height: 1.8; margin-bottom: 32px;">Provisional Patent USPTO #64/056,791 · May 2026</p>
+    <p style="margin-bottom: 8px;"><a class="btn btn-solid" href="mailto:contact@reeblink.com?subject=SAFE%20%E2%80%94%20entering%20the%20round">Enter the round</a></p>
+    <p class="muted" style="font-size: 13px; margin-bottom: 20px;">or email <span id="round-email" style="color: var(--ink);">contact@reeblink.com</span> <button type="button" id="copy-email" style="background: transparent; border: 1px solid var(--line); border-radius: 6px; color: var(--ink-dim); font-family: var(--sans); font-size: 12px; padding: 2px 8px; cursor: pointer;">copy</button></p>
+    <p class="muted" style="font-size: 14px;"><a href="DECK_URL_PLACEHOLDER" style="text-decoration: underline; text-underline-offset: 3px;">Pitch deck — open</a></p>
+  </section>
+
+  <section class="center wrap" style="border-top: 1px solid var(--line); max-width: 380px; padding-top: 28px; padding-bottom: 8px;">
+    <p class="soft" style="font-size: 14px; margin-bottom: 4px;">Yurii Holub — Inventor &amp; Architect</p>
+    <p class="muted" style="font-size: 13px;">contact@reeblink.com · @squarcoin</p>
+  </section>
+
+  <p class="center" style="padding: 36px 0 8px;"><a class="back" href="index.html">See the participant page →</a></p>
+</main>
+
+<hr class="rule-faint" style="margin-top: 24px;">
+
+<footer class="wrap">
+  <p class="footnote" style="text-align: left; margin-bottom: 12px;">* Methodology and sources — in the pitch deck.<br>
+  ** Network — a set of independent properties operating under one shared standard and rules.</p>
+  <div class="legal" style="border-top: 1px solid var(--line); padding-top: 15px;">
+    <p style="margin-bottom: 10px;"><strong>CONFIDENTIAL &amp; RESTRICTED INVESTOR NOTICE:</strong></p>
+    <p style="margin-bottom: 10px;">This page and the information contained herein relate strictly to a proposed Simple Agreement for Future Equity (SAFE) investment round and are addressed <strong>EXCLUSIVELY TO ACCREDITED INVESTORS</strong> (as defined under Rule 501 of Regulation D under the U.S. Securities Act of 1933, as amended) and/or Professional/Qualified Investors in relevant jurisdictions. This material does not constitute an offer to sell, or a solicitation of an offer to buy, any security or financial instrument in any jurisdiction where such offer or solicitation would be unlawful or unauthorized.</p>
+    <p>The SAFE instruments described herein have not been registered under the U.S. Securities Act of 1933 or the securities laws of any state or foreign jurisdiction. Investments in early-stage technology protocols and SAFE instruments involve an extremely high degree of risk, including total loss of capital, illiquidity, lack of marketability, and regulatory uncertainty. Information provided does not constitute investment, tax, financial, or legal advice. Prospective investors must rely on their own due diligence and legal counsel before executing any investment documentation.</p>
+  </div>
+</footer>
+
+<script src="counter.js"></script>
+<script>
+// Copy investor email to clipboard — works regardless of mail client setup.
+(function(){
+  var btn = document.getElementById('copy-email');
+  if(!btn) return;
+  btn.addEventListener('click', function(){
+    var addr = document.getElementById('round-email').textContent.trim();
+    var done = function(){ btn.textContent = 'copied'; setTimeout(function(){ btn.textContent = 'copy'; }, 1500); };
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(addr).then(done, function(){ done(); });
+    } else {
+      var t = document.createElement('textarea'); t.value = addr; document.body.appendChild(t); t.select();
+      try { document.execCommand('copy'); } catch(e){}
+      document.body.removeChild(t); done();
+    }
+  });
+})();
+</script>
+<!-- ANALYTICS: paste the Cloudflare Web Analytics / GoatCounter snippet below this line -->
+</body>
+</html>

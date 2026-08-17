@@ -1,317 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Reeblink</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reeblink — Turn rent into equity you keep, at any address</title>
+<meta name="description" content="Reeblink is a global real estate network where rent can build equity you hold and carry with you across properties and addresses — without a mortgage or debt.">
+<link rel="canonical" href="https://reeblink.com/">
+<link rel="alternate" hreflang="en" href="https://reeblink.com/">
+<link rel="alternate" hreflang="x-default" href="https://reeblink.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://reeblink.com/">
+<meta property="og:title" content="Reeblink — Programmable real estate">
+<meta property="og:description" content="Imagine square meters in your digital wallet that move with you and lower your rent — a global network scaled by its participants.">
+<meta property="og:image" content="https://reeblink.com/og-banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Reeblink",
+  "url": "https://reeblink.com/",
+  "description": "Reeblink is a decentralized operating system for real estate, built around an open standard that makes real estate programmable.",
+  "founder": {
+    "@type": "Person",
+    "name": "Yurii Holub"
+  }
+}
+</script>
 <style>
-body {
-  font-family: Arial, sans-serif;
-  max-width: 900px;
-  margin: 1px auto;
-  padding: 0 25px;
-  line-height: 1.6;
-  color: #222;
-}
-h1, h2 { font-size: 2em; margin-top: 0.1em; }
-em { color: #555; }
-ul { margin-top: 1em; padding-left: 20px; }
-hr { margin: 2em 0; }
-a { color: #0066cc; text-decoration: none; }
-a:hover { text-decoration: underline; }
-.header-container {
-  position: sticky;
-  top: 0;
-  background: white;
-  z-index: 1000;
-  padding-bottom: 10px;
-}
-.lang-switcher {
-  text-align: center;
-  margin-top: 5px;
-}
-.lang-switcher a {
-  margin: 0 5px;
-  text-decoration: none;
-  font-weight: bold;
-  color: #0066cc;
-  font-size: 14px;
-}
-form {
-  margin-top: 1em;
-  background: #f9f9f9;
-  padding: 1em;
-  border-radius: 8px;
-}
-form input, form button {
-  width: 100%;
-  padding: 0.5em;
-  margin-top: 0.5em;
-}
-form button {
-  background-color: #0066cc;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-form button:hover { background-color: #004c99; }
-form label { 
-  font-size: 16px; /* размер текста label */
-}
-form input {
-  font-size: 16px; /* размер текста внутри input */
-}
-form button {
-  font-size: 16px; /* размер текста кнопки */
-}
-summary {
-  font-size: 1.3rem;
-  font-weight: bold;
-  cursor: pointer;
-  color: #0066cc;
-}
-summary::marker { font-size: 2em; }
-ul.no-bullets {
-  list-style-type: none; /* убирает точки */
-  padding-left: 0;       /* убирает лишний отступ слева */
-}
-[id] { scroll-margin-top: 140px; }
-; }
-
-.lang-switcher {
-  margin-bottom: 0; /* убирает нижний отступ у блока языков */
-  display: flex; /* делает кнопки в ряд */
-  justify-content: center; /* центрирует кнопки */
-  gap: 0.5em; /* расстояние между кнопками */
-  font-size: 1rem; /* базовый размер текста кнопок */
-}
-
-/* Настрой размер кнопок языков */
-.lang-switcher a {
-  padding: 0.2em 0.5em; /* внутренние отступы кнопок: верх-низ, лево-право */
-  font-size: 1rem; /* размер текста внутри кнопок */
-}
-
-/* Опционально: настрой ширину блока */
-.lang-switcher {
-  max-width: 100%; /* при необходимости задай фиксированную ширину */
-}
-
-/* Плавный скролл по якорям */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Смещение якорей с учетом шапки */
-[id] {
-  scroll-margin-top: 140px; /* подгони под высоту шапки */
-}
-nav.main-nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 2em;
-  padding: 0.5em 0;
-}
-/* Медиазапрос для мобильных, если нужно меньше смещение */
-/* 📱 Медиазапрос для мобильных */
-@media (max-width: 600px) {
-  body {
-    padding-top: 120px;
-  }
-
-  form label,
-  form input,
-  form button {
-    font-size: 16px;
-  }
-
-  [id] {
-    scroll-margin-top: 100px;
-  }
-
-  .header-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    background-color: white;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-bottom: none;
-  }
-
-  nav.main-nav {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    gap: 8px;
-    justify-content: start;
-    padding: 0.3em 0.5em;
-    width: 100%;
-    border-bottom: 1px solid #ddd; /* тонкая линия под страницами */
-    scrollbar-width: none;
-  }
-  nav.main-nav::-webkit-scrollbar {
-    display: none;
-  }
-
-  .main-nav a {
-    flex: 0 0 auto;
-    font-size: 13px;
-    padding: 0.4em 0.6em;
-    white-space: nowrap;
-  }
-
-  .lang-switcher {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    justify-content: center;
-    gap: 8px;
-    width: 100%;
-    padding: 0.3em 0.5em;
-    border-bottom: 1px solid #eee; /* тонкая линия под языками */
-    scrollbar-width: none;
-  }
-  .lang-switcher::-webkit-scrollbar {
-    display: none;
-  }
-
-  .lang-switcher a {
-    flex: 0 0 auto;
-    font-size: 13px;
-    padding: 0.3em 0.6em;
-    white-space: nowrap;
-  }
-}
+  .win { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 72px 24px; border-bottom: 1px solid var(--line); position: relative; }
+  .win-inner { max-width: 600px; width: 100%; }
+  .win .cards { display: flex; flex-direction: column; gap: 16px; width: 100%; margin-top: 8px; }
+  @media (min-width: 640px) { .win .cards { flex-direction: row; } }
+  .win .card { border: 1px solid var(--line); border-radius: 10px; padding: 22px; text-align: left; flex: 1; }
+  .win .card h3 { font-size: 17px; color: var(--ink); font-weight: 500; margin-bottom: 6px; }
+  .win .card p { font-size: 14.5px; line-height: 1.6; color: var(--ink-mid); }
+  .win-nav { margin-top: 28px; }
 </style>
 </head>
 <body>
-<div class="header-container">
- <nav class="main-nav">
-  <a href="#about">About</a>
-  <a href="#token">Network Token</a>
-  <a href="#genesis">Genesis</a>
-  <a href="#subscribe">Subscribe</a>
-</nav>
-</div>
 
-<section id="about">
-  <h1 translate="no" class="notranslate">Reeblink</h1>
-  <p><em>A decentralized operating system for real estate</em></p>
-  <p>DAO infrastructure with open-source code that connects property registries from various jurisdictions into a unified decentralized ledger, enabling the creation of a global real estate network on blockchain.</p>
-  <ul>
-    <li>Windows — for personal computers</li>
-    <li>Android — for smartphones</li>
-    <li>Ethereum — for smart contracts</li>
-    <li>Reeblink — for real estate</li>
-  </ul>
-  <ul class="no-bullets">
-  <li>⛓️ Decentralized</li>
-  <li>📡 Global</li>
-  <li>🏗️ Purpose-built for property</li>
-  </ul>
-  <ul class="no-bullets">
-  <li>Currently in development — the first open-source module focuses on DAO infrastructure and legal automation.</li>
-  </ul>
-  <details>
-    <summary>📘 Learn more about the academic foundation</summary>
-    <p>
-      We have published an <a href="https://doi.org/10.5281/zenodo.15708039" target="_blank">academic article</a> describing the architecture of decentralized real estate networks and the role of Reeblink as an operating system.
-    </p>
-    <p>
-      Currently, the article is available in English. Translations into other languages are being prepared. You can submit a request if you want a version in your language — and we will notify you upon publication.
-    </p>
-    <form action="https://formspree.io/f/mgvyrkle" method="POST">
-      <label for="language">Translation language:</label><br>
-      <input type="text" id="language" name="language" required><br>
-      <label for="email">Your email:</label><br>
-      <input type="email" id="email" name="email" required><br>
-      <button type="submit">Submit request</button>
-    </form>
-  </details>
+<!-- ОКНО 1 -->
+<section class="win">
+  <div class="win-inner">
+    <p class="brand" style="margin-bottom: 40px;">REEBLINK</p>
+    <h1 class="lead" style="margin-bottom: 14px; font-size: 25px; line-height: 1.5;">Programmable real estate.</h1>
+    <p class="sub">A real estate network scaled by its participants.</p>
+    <div class="win-nav"><a class="btn btn-ghost" href="#w2">See what becomes possible ↓</a></div>
+  </div>
 </section>
 
-<hr>
-
-<section id="token">
-  <h2>🧿 Core of Reeblink — Network Token</h2>
-  <p>The network token reflects the weighted value of one square meter of real estate added to the network and serves as the network's accounting unit..</p>
-  <p>This dual nature — combining value and function — enables all key mechanisms of Reeblink:</p>
-  <h3>👥 User functions</h3>
-  <ul>
-    <li>🔓 Removal of entry barriers — everyone can participate in the real estate market</li>
-    <li>📉 Zero rent option — users do not pay for square meters they already own</li>
-    <li>🏷 Transition to ownership — network tokens can be used to fully redeem property without external financing</li>
-    <li>💳 Mortgage alternative — instead of loans and risks of loss, gradual buyout through holding the network token</li>
-    <li>💸 Income from the network — token holders receive a share of the rent from all real estate in the network</li>
-  </ul>
-  <h3>🌐 Economic functions</h3>
-  <ul>
-    <li>🔁 Real estate liquidity — square meters become tradable digital assets</li>
-    <li>📈 Network capital growth — each new property increases total network value and reduces sensitivity of the network token to fluctuations of individual assets</li>
-  </ul>
-  <p><strong>The network token is a universal unit of calculation, access, and participation in the Reeblink economy.</strong></p>
+<!-- ОКНО 2 -->
+<section class="win" id="w2">
+  <div class="win-inner">
+    <p class="lead" style="margin-bottom: 14px;">Imagine: square meters in your digital wallet.</p>
+    <p class="sub" style="margin-bottom: 12px;">They move with you.</p>
+    <p class="sub">Month after month, they lower your rent.</p>
+    <div class="win-nav"><a class="btn btn-ghost" href="#w3">Learn more ↓</a></div>
+  </div>
 </section>
 
-<hr>
-
-<section id="genesis">
-  <h2>🧬 Genesis</h2>
-  <p><strong>The beginning of Reeblink network</strong></p>
-  <p>Every decentralized network starts with a crystalline point. For Reeblink, this is the Genesis issuance.</p>
-  <h3>What is Genesis issuance?</h3>
-  <p>The network token issuance occurs every time property rights are added to the network.</p>
-  <p>This is a protocol process: each network token reflects the weighted value of one square meter of real estate, and the total number of issued tokens corresponds to the full value of the added asset.</p>
-  <p>But every network has its launch moment —</p>
-  <ul>
-    <li>establishment of validator architecture,</li>
-    <li>creation of the first DAO structure,</li>
-    <li>first properties in the network,</li>
-    <li>issuance of protocol network tokens,</li>
-    <li>access for first users for passive and active participation in building the decentralized network</li>
-  </ul>
-  <h3>Who participates in Genesis?</h3>
-  <ul>
-    <li>🧱 Architects — create legal and technological DAO infrastructure</li>
-    <li>🔑 Angels — provide liquidity and receive privileged access</li>
-    <li>👥 Pioneers — the first to use the protocol: list properties, rent, redeem</li>
-  </ul>
-  <p>Token holders earn on the difference between Genesis token value and protocol network token value.</p>
-  <p><strong>Genesis is not only the network’s start but also the opening of a future economy where anyone can be an owner without mortgages, a participant without barriers, an investor without intermediaries.</strong></p>
-  <h3>Why is it important?</h3>
-  <ul>
-    <li>📦 Base liquidity for initial deals</li>
-    <li>⚙️ Protocol interaction infrastructure</li>
-    <li>🧿 First token value model used for subsequent issuances</li>
-    <li>🌱 Foundation for network capital growth</li>
-  </ul>
-  <h3>Join us</h3>
-  <p>Genesis preparation is not yet complete. We welcome those who want to build with us.</p>
-  <p>Want to be part of Genesis?<br>Write to us: <a href="mailto:contact@reeblink.com">contact@reeblink.com</a></p>
+<!-- ОКНО 3 — What you hold -->
+<section class="win" id="w3">
+  <div class="win-inner">
+    <p class="kicker" style="margin-bottom: 22px;">What you hold</p>
+    <div class="cards">
+      <div class="card">
+        <h3>A balance of your own</h3>
+        <p>Network m² in your wallet — the more you hold, the less rent you pay.</p>
+      </div>
+      <div class="card">
+        <h3>Portable</h3>
+        <p>They lower your rent at any property in the network — in any country.</p>
+      </div>
+      <div class="card">
+        <h3>Yours to move</h3>
+        <p>Not locked in. Hold them, use them, or transfer them — your choice.</p>
+      </div>
+    </div>
+    <div class="win-nav"><a class="btn btn-ghost" href="#w4">How it works ↓</a></div>
+  </div>
 </section>
 
-<hr>
+<!-- ОКНО 4 — How it works (заголовок убран, он на кнопке из окна 3) -->
+<section class="win" id="w4">
+  <div class="win-inner">
+    <p class="lead" style="font-size: 23px; margin-bottom: 18px;">Rent that builds something.</p>
+    <p class="sub" style="font-size: 16px; line-height: 1.7;">Rent is the largest payment most people make — and the only one that builds nothing. Reeblink changes the direction of that flow: rent inside the network, and Network m² accumulate in your wallet — a balance of your own that lowers your rent.</p>
+    <div class="win-nav"><a class="btn btn-ghost" href="#w5">What to compare it to ↓</a></div>
+  </div>
+</section>
 
-<section id="subscribe">
-  <h2>📬 Subscribe for Reeblink updates</h2>
-  <p><strong>Stay informed about the first launches.</strong></p>
-  <p>Subscribe to receive news about network development, Genesis issuance launch, and new Reeblink opportunities.</p>
-  <form action="https://formspree.io/f/mgvyrkle" method="POST">
-    <input type="email" name="email" placeholder="Enter your email" required />
-    <button type="submit">Follow updates</button>
-  </form>
+<!-- ОКНО 5 — Like a mortgage -->
+<section class="win" id="w5">
+  <div class="win-inner">
+    <p class="kicker" style="margin-bottom: 18px;">Like a mortgage — without the bank</p>
+    <p class="lead" style="font-size: 23px; margin-bottom: 18px;">The good part, without the debt.</p>
+    <p class="sub" style="font-size: 16px; line-height: 1.7;">A mortgage ties ownership to decades of debt, interest, and an address you cannot leave. Reeblink keeps the good part — housing that becomes yours over time — and removes the rest. No bank. No debt. No address attached.</p>
+    <div class="win-nav"><a class="btn btn-ghost" href="#w6">In which country ↓</a></div>
+  </div>
+</section>
+
+<!-- ОКНО 6 — One account. Any country -->
+<section class="win" id="w6">
+  <div class="win-inner">
+    <p class="kicker" style="margin-bottom: 18px;">One account. Any country.</p>
+    <p class="lead" style="font-size: 23px; margin-bottom: 18px;">Your balance moves with you.</p>
+    <p class="sub" style="font-size: 16px; line-height: 1.7;">One network, one account. Your Network m² work at any property — whichever city, whichever country. Move for work or family: your balance follows and keeps lowering your rent at the new address.</p>
+    <div class="win-nav"><a class="btn btn-ghost" href="#cta">Who builds the network ↓</a></div>
+  </div>
+</section>
+
+<!-- ОКНО 7 — CTA -->
+<section class="win" id="cta">
+  <div class="win-inner">
+    <p class="lead" style="font-size: 23px; margin-bottom: 10px;">Pioneers deploy the network.</p>
+    <p class="sub" style="margin-bottom: 28px;">Only 1,000 Pioneer statuses worldwide — ever.</p>
+    <a class="btn btn-solid" href="participants.html">Become a Pioneer</a>
+    <div class="win-nav"><a class="btn btn-ghost" href="faq.html">FAQ</a></div>
+  </div>
 </section>
 
 </body>

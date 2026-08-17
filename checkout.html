@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Reeblink — Pioneer status pre-order</title>
+<meta name="description" content="One personal Pioneer status license — $50. Payment in USDC (Polygon).">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Reeblink — Pioneer status pre-order">
+<meta property="og:description" content="A personal utility license for individual access to the Reeblink network — $50.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="hero center wrap" style="padding-bottom: 32px;">
+  <p class="brand" style="margin-bottom: 44px;">REEBLINK</p>
+  <p class="lead" style="font-size: 22px; margin-bottom: 12px;">Pioneer status — pre-order</p>
+  <p class="soft" style="font-size: 16px;">One personal License — $50</p>
+</header>
+
+<main>
+  <section class="center wrap" style="max-width: 420px; padding-top: 12px;">
+
+    <!-- PAYMENTS NOT YET OPEN notice — commented out for sandbox testing.
+         RESTORE this block (uncomment) if you disable payments again.
+    <div id="not-open-notice" style="border: 1px solid var(--line); border-radius: 8px; padding: 22px 18px; margin-bottom: 32px;">
+      <p class="soft" style="font-size: 15px; margin-bottom: 16px;">Payment opens together with the Pre-order Terms. Leave your email — you'll be the first to know.</p>
+      <form action="https://formspree.io/f/mgvyrkle" method="POST" style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;">
+        <input type="hidden" name="source" value="checkout-notify">
+        <label for="notify-email" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Email</label>
+        <input type="email" id="notify-email" name="email" required placeholder="name@example.com"
+               style="flex: 1; min-width: 200px; background: transparent; border: 1px solid #3A3A40; border-radius: 8px; padding: 11px 14px; color: var(--ink); font-family: var(--sans); font-size: 14px;">
+        <button type="submit" class="btn btn-ghost" style="padding: 11px 20px;">Notify me</button>
+      </form>
+      <p class="muted" style="font-family: var(--sans); font-size: 12px; margin-top: 10px;">Launch notice only. No spam, your address is never shared.</p>
+    </div>
+    -->
+
+    <p class="soft" style="font-size: 14px; margin-bottom: 24px;">Payment in <strong>USDC on the Polygon network</strong> · fixed $50.00</p>
+
+    <p class="muted" style="font-family: var(--sans); font-size: 11.5px; line-height: 1.6; margin-bottom: 16px;">
+      Sanctions &amp; Geographic Compliance Declaration: By proceeding with this transaction, you represent and warrant that you are not a citizen, resident, or entity located in, or organized under the laws of Iran, North Korea, Cuba, Syria, Russia, Belarus, or the temporarily occupied regions of Ukraine, nor are you listed on any OFAC, EU, or UN sanctions list. You confirm that you are not utilizing VPN or proxy services to circumvent geographic access restrictions.
+    </p>
+
+    <div class="checkbox-row">
+      <input type="checkbox" id="accept-terms">
+      <label for="accept-terms">I agree to the <a href="legal.html#terms" target="_blank" style="text-decoration: underline; text-underline-offset: 2px;">Pre-order Terms</a> (v1.5-USDC) and <a href="legal.html#privacy" target="_blank" style="text-decoration: underline; text-underline-offset: 2px;">Privacy Notice</a>. I confirm that I am acquiring a personal software utility license for individual access, with no expectation of financial return or guaranteed secondary resale value. I acknowledge that Q1 2027 is an estimated target timeline, not a guaranteed delivery date.</label>
+    </div>
+
+    <!-- Payment widget appears only after the buyer accepts the terms above.
+         The NOWPayments widget collects the buyer's email (mandatory) and
+         processes the $50 USDC (Polygon) payment. -->
+    <p id="pay-hint" class="soft" style="font-size: 14px; margin: 8px 0 20px; opacity: 0.7;">Check the box above to continue to payment.</p>
+
+    <div id="widget-wrap" style="display: none; margin-top: 8px;">
+      <p class="soft" style="font-size: 13px; margin-bottom: 12px; opacity: 0.75;">Enter your email, then pay $50 in USDC on the Polygon network.</p>
+      <div style="max-width: 410px; margin: 0 auto;">
+        <iframe id="nowpay" src="about:blank" data-src="https://nowpayments.io/embeds/payment-widget?iid=5491332278"
+                width="410" height="696" frameborder="0" scrolling="no"
+                style="overflow-y: hidden; width: 100%; max-width: 410px; border: 0;">
+          Can't load widget
+        </iframe>
+      </div>
+    </div>
+
+  </section>
+
+  <p class="center" style="padding: 44px 0 8px;"><a class="back" href="participants.html">← Back</a></p>
+</main>
+
+<hr class="rule-faint" style="margin-top: 24px;">
+
+<footer class="wrap center">
+  <p class="footer-links">
+    <a href="legal.html#terms">Pre-order Terms</a> &nbsp;·&nbsp;
+    <a href="legal.html#privacy">Privacy</a>
+  </p>
+  <p class="legal">Legal Disclaimer: The Reeblink Network License is a utility-based personal permission granting access to the future Reeblink network and the stated Pioneer privileges. Licenses are personal and do not represent investments, securities, financial instruments, shares, or debt obligations in any entity. Network m² are units of measure of network activity, distinct from the License; they do not represent ownership of, or shares in, any real estate or entity, and cannot be acquired during this pre-sale. The purchase of a License involves high technical and regulatory risks. Pre-orders are refundable strictly pursuant to the Pre-order Terms.</p>
+</footer>
+
+<script>
+// ============================================================
+//  NOWPAYMENTS WIDGET — USDC (Polygon)
+//  Seller: Yurii Holub (individual). Fixed $50 USD in USDC.
+//
+//  FLOW (counsel-approved):
+//   1. Buyer reads sanctions declaration + accepts Pre-order Terms
+//      (checkbox) — required BEFORE any payment is possible.
+//   2. On accept, the NOWPayments widget is revealed.
+//   3. Widget collects the buyer's email (MANDATORY) then processes
+//      the $50 USDC payment on the Polygon network.
+//
+//  To point at a different invoice, change the iid in the iframe's
+//  data-src attribute above (currently iid=5491332278).
+// ============================================================
+
+var TERMS_VERSION = "v1.5-USDC";
+
+var box = document.getElementById("accept-terms");
+var wrap = document.getElementById("widget-wrap");
+var hint = document.getElementById("pay-hint");
+var frame = document.getElementById("nowpay");
+var widgetLoaded = false;
+
+box.addEventListener("change", function () {
+  if (box.checked) {
+    // Reveal widget; load iframe lazily on first acceptance.
+    if (!widgetLoaded) {
+      frame.src = frame.getAttribute("data-src");
+      widgetLoaded = true;
+
+      // Acceptance record (counsel-required). The buyer's email is
+      // collected inside the NOWPayments widget and appears against the
+      // payment in the dashboard ("More info"), tying email to payment.
+      var acceptance = {
+        timestamp_utc: new Date().toISOString(),
+        terms_version: TERMS_VERSION,
+        checkbox_acknowledged: true,
+        sanctions_declaration_acknowledged: true,
+        us_utility_representation_acknowledged: true
+      };
+      console.log("acceptance", acceptance);
+    }
+    wrap.style.display = "block";
+    hint.style.display = "none";
+  } else {
+    wrap.style.display = "none";
+    hint.style.display = "block";
+  }
+});
+</script>
+<!-- ANALYTICS: paste the Cloudflare Web Analytics / GoatCounter snippet below this line -->
+</body>
+</html>
