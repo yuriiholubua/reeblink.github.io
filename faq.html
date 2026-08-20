@@ -220,11 +220,102 @@
     </div>
   </section>
 
+  <section class="center wrap" style="padding-top: 40px; max-width: 560px;">
+    <p style="font-size: 16px; color: var(--ink-soft); margin-bottom: 20px;">Didn't find your question?</p>
+    <button type="button" class="btn btn-ghost" id="open-ask">Ask a question or subscribe</button>
+  </section>
+
   <section class="center wrap" style="padding-top: 32px;">
     <a class="btn btn-ghost" href="index.html#cta">← Back</a>
     <p style="margin-top: 20px; font-size: 14px;"><a class="link-underline" href="participants.html">Become a Pioneer →</a></p>
   </section>
 </main>
+
+<!-- Ask / Subscribe modal -->
+<div id="ask-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:1000; align-items:center; justify-content:center; padding:20px;">
+  <div style="background:var(--bg); border:1px solid var(--line); border-radius:12px; max-width:440px; width:100%; padding:28px 24px; position:relative;">
+    <button type="button" id="ask-close" aria-label="Close" style="position:absolute; top:14px; right:16px; background:none; border:none; color:var(--ink-dim); font-size:22px; cursor:pointer; line-height:1;">&times;</button>
+
+    <div id="ask-step1">
+      <p style="font-size:17px; color:var(--ink); font-weight:500; margin-bottom:6px;">Ask a question or subscribe</p>
+      <p style="font-size:14px; color:var(--ink-mid); margin-bottom:18px;">Leave your email. Ask a question and I'll answer personally — or just subscribe to be the first to know.</p>
+      <label for="ask-email" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Email</label>
+      <input type="email" id="ask-email" required placeholder="name@example.com"
+             style="width:100%; background:transparent; border:1px solid #3A3A40; border-radius:8px; padding:12px 14px; color:var(--ink); font-family:var(--sans); font-size:14px; margin-bottom:14px; box-sizing:border-box;">
+      <div style="display:flex; gap:10px; flex-wrap:wrap;">
+        <button type="button" class="btn btn-ghost" id="btn-ask" style="flex:1; min-width:130px;">Ask a question</button>
+        <button type="button" class="btn btn-solid" id="btn-sub" style="flex:1; min-width:130px;">Subscribe</button>
+      </div>
+      <p id="ask-error" style="display:none; color:#C98A8A; font-size:13px; font-family:var(--sans); margin-top:12px;">Please enter a valid email.</p>
+    </div>
+
+    <div id="ask-step2" style="display:none;">
+      <p style="font-size:17px; color:var(--ink); font-weight:500; margin-bottom:14px;">Your question</p>
+      <textarea id="ask-question" rows="4" placeholder="Type your question here…"
+             style="width:100%; background:transparent; border:1px solid #3A3A40; border-radius:8px; padding:12px 14px; color:var(--ink); font-family:var(--sans); font-size:14px; margin-bottom:14px; box-sizing:border-box; resize:vertical;"></textarea>
+      <button type="button" class="btn btn-solid" id="btn-send-q" style="width:100%;">Send</button>
+    </div>
+
+    <div id="ask-done" style="display:none; text-align:center; padding:8px 0;">
+      <p id="ask-done-text" style="font-size:15px; color:var(--ink-soft); line-height:1.6;"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var FORM = "https://formspree.io/f/mgvyrkle";
+  var overlay = document.getElementById('ask-overlay');
+  var step1 = document.getElementById('ask-step1');
+  var step2 = document.getElementById('ask-step2');
+  var done  = document.getElementById('ask-done');
+  var doneText = document.getElementById('ask-done-text');
+  var emailInput = document.getElementById('ask-email');
+  var qInput = document.getElementById('ask-question');
+  var errEl = document.getElementById('ask-error');
+
+  function openModal(){ overlay.style.display='flex'; step1.style.display='block'; step2.style.display='none'; done.style.display='none'; errEl.style.display='none'; }
+  function closeModal(){ overlay.style.display='none'; emailInput.value=''; qInput.value=''; }
+  function validEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+  document.getElementById('open-ask').addEventListener('click', openModal);
+  document.getElementById('ask-close').addEventListener('click', closeModal);
+  overlay.addEventListener('click', function(e){ if(e.target===overlay) closeModal(); });
+
+  function send(type, question){
+    var data = { email: emailInput.value.trim(), type: type };
+    if(question) data.question = question;
+    fetch(FORM, {
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body: JSON.stringify(data)
+    }).then(function(r){
+      step1.style.display='none'; step2.style.display='none'; done.style.display='block';
+      doneText.textContent = (type==='question')
+        ? "Thanks — I'll answer you personally, at the email you left."
+        : "Thanks — you'll be the first to know.";
+    }).catch(function(){
+      step1.style.display='none'; step2.style.display='none'; done.style.display='block';
+      doneText.textContent = "Thanks — your message has been received.";
+    });
+  }
+
+  document.getElementById('btn-ask').addEventListener('click', function(){
+    if(!validEmail(emailInput.value.trim())){ errEl.style.display='block'; return; }
+    errEl.style.display='none';
+    step1.style.display='none'; step2.style.display='block';
+  });
+
+  document.getElementById('btn-sub').addEventListener('click', function(){
+    if(!validEmail(emailInput.value.trim())){ errEl.style.display='block'; return; }
+    send('subscribe', null);
+  });
+
+  document.getElementById('btn-send-q').addEventListener('click', function(){
+    send('question', qInput.value.trim());
+  });
+})();
+</script>
 
 </body>
 </html>
