@@ -52,14 +52,17 @@
     </div>
 
     <!-- Payment widget appears only after the buyer accepts the terms above.
-         The NOWPayments widget collects the buyer's email (mandatory) and
-         processes the $50 USDC (Polygon) payment. -->
+         The NOWPayments widget collects the buyer's email and processes the
+         $50 payment. The buyer picks the coin in the widget — the Pre-order
+         Terms (v1.5-USDC) describe USDC on Polygon, so the copy above tells
+         them to select it. Widget iid=4692901959 (created 23 Aug 2026 after
+         the fixed-currency widget 5491332278, which broke on the provider side). -->
     <p id="pay-hint" class="soft" style="font-size: 14px; margin: 8px 0 20px; opacity: 0.7;">Check the box above to continue to payment.</p>
 
     <div id="widget-wrap" style="display: none; margin-top: 8px;">
-      <p class="soft" style="font-size: 13px; margin-bottom: 12px; opacity: 0.75;">Enter your email, then pay $50 in USDC on the Polygon network.</p>
+      <p class="soft" style="font-size: 13px; margin-bottom: 12px; opacity: 0.75;">In the payment window select <strong>USDC</strong> on the <strong>Polygon</strong> network, enter your email, then pay $50.</p>
       <div style="max-width: 410px; margin: 0 auto;">
-        <iframe id="nowpay" src="about:blank" data-src="https://nowpayments.io/embeds/payment-widget?iid=5491332278"
+        <iframe id="nowpay" src="about:blank" data-src="https://nowpayments.io/embeds/payment-widget?iid=4692901959"
                 width="410" height="696" frameborder="0" scrolling="no"
                 style="overflow-y: hidden; width: 100%; max-width: 410px; border: 0;">
           Can't load widget
@@ -84,18 +87,21 @@
 
 <script>
 // ============================================================
-//  NOWPAYMENTS WIDGET — USDC (Polygon)
+//  NOWPAYMENTS WIDGET — coin selected by the buyer; USDC (Polygon) advised
 //  Seller: Yurii Holub (individual). Fixed $50 USD in USDC.
 //
 //  FLOW (counsel-approved):
 //   1. Buyer reads sanctions declaration + accepts Pre-order Terms
 //      (checkbox) — required BEFORE any payment is possible.
 //   2. On accept, the NOWPayments widget is revealed.
-//   3. Widget collects the buyer's email (MANDATORY) then processes
-//      the $50 USDC payment on the Polygon network.
+//   3. Widget: buyer selects the coin, enters an email, then pays $50.
+//      The email is visible only in the NOWPayments dashboard:
+//      Payment tools > Payments > open invoice > Payment info > Customer info.
+//      Payment alerts arrive in Telegram via the Cloudflare Worker
+//      (reeblink-pay.reeblink.workers.dev), which receives the IPN callback.
 //
 //  To point at a different invoice, change the iid in the iframe's
-//  data-src attribute above (currently iid=5491332278).
+//  data-src attribute above (currently iid=4692901959).
 // ============================================================
 
 var TERMS_VERSION = "v1.5-USDC";
