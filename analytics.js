@@ -17,6 +17,41 @@
 (function () {
   "use strict";
 
+  /* -----------------------------------------------------------------------
+   * 0. OWNER OPT-OUT — confirmation only
+   * The flag itself is set by the one-line script placed above the Umami tag,
+   * which has to run before the tracker does. This only tells the person
+   * standing in front of the screen that it worked — there is no console on
+   * a phone, so without a visible answer the switch is unverifiable.
+   * -------------------------------------------------------------------- */
+  (function () {
+    if (location.search.indexOf("optout") === -1 &&
+        location.search.indexOf("optin") === -1) return;
+
+    var off;
+    try { off = localStorage.getItem("umami.disabled") === "1"; }
+    catch (e) { off = null; }
+
+    var bar = document.createElement("div");
+    bar.setAttribute("role", "status");
+    bar.style.cssText =
+      "position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:9999;" +
+      "max-width:min(520px,calc(100vw - 32px));box-sizing:border-box;" +
+      "padding:14px 20px;border:1px solid #26262B;border-radius:8px;" +
+      "background:#111114;color:#C9C7C0;text-align:center;" +
+      "font:14px/1.5 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;";
+    bar.textContent =
+      off === null
+        ? "Не удалось сохранить настройку — браузер блокирует хранилище сайта."
+        : off
+          ? "Этот браузер больше не учитывается в статистике."
+          : "Этот браузер снова учитывается в статистике.";
+
+    var show = function () { document.body.appendChild(bar); };
+    if (document.body) show();
+    else document.addEventListener("DOMContentLoaded", show);
+  })();
+
   function track(name, data) {
     try {
       if (window.umami && typeof window.umami.track === "function") {
